@@ -1,0 +1,43 @@
+# .gitignore
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+__pycache__/
+
+# Виртуальная среда
+whisperx_env
+venv/
+env/
+*.env
+
+# Журнал Git
+.git/
+
+# Папки и файлы с данными
+*.log
+*.csv
+*.tsv
+*.json
+
+# Модели и файлы Hugging Face
+*.pth
+*.bin
+
+# Тестовые файлы
+*.test
+*.tmp
+
+# IDE и редакторы
+.vscode/
+.idea/
+
+# Custom folders
+# Папки для содержания отдельных файлов, чей объём выше 100мб
+lfs/
+
+# результат выполнения программы
+
+transcription_output.txt
