@@ -26,6 +26,9 @@ pip install git+https://github.com/m-bain/whisperX.git
 ```sh
 pip install numpy torchaudio transformers ffmpeg-python silero-vad
 ```
+```sh
+pip install python-dotenv
+```
 
 **Если у вас нет видеокарты NVIDIA, замените команду установки Torch на:**
 ```sh
