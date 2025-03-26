@@ -10,6 +10,7 @@ __pycache__/
 # Виртуальная среда
 whisperx_env
 venv/
+.venv/
 env/
 *.env
 
