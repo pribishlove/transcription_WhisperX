@@ -1,6 +1,6 @@
 # .gitignore
-test8min.mp3
-test2hour.mp3
+AUDIO_for_transcription/*
+StepanLem_private/
 
 # Python
 *.pyc
