@@ -21,7 +21,7 @@ HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 #Некоторые переменные, которые надо настроить.
 #установи значения перед запуском:
 language_code = "ru" # предпологается давать пользователю вручную выбирать эту переменную, чтобы не было ошибок при распазновании первых 30 секунд речи.
-audio_path = "7minpodcast.mp3"
+audio_path = "AUDIO_for_transcription/vid_transcribe.mp4"
 min_speakers_count = 1
 max_speakers_count = 3
 
