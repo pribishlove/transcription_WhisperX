@@ -99,7 +99,7 @@ final_result = whisperx.assign_word_speakers(diarization, aligned_transcription)
 execution_time_diarization = time.time() - start_time_diarization
 print(f"END: Диаризация : {execution_time_diarization:.4f} секунд")
 
-with open("transcription_output.txt", "w", encoding="utf-8") as f:
+with open("TEXT_after_transcription/transcription_output.txt", "w", encoding="utf-8") as f:
     for segment in final_result["segments"]:
         speaker = segment.get('speaker', "Unknown")  # Возвращает "Unknown", если 'speaker' нет
         if speaker == "Unknown":
