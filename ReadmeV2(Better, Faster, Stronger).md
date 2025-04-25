@@ -27,7 +27,7 @@ source .venv/bin/activate
 
 
 --- Whisper и зависимости.
-ВАРИАНТ А:
+ВАРИАНТ А(чат гпт)):
 --- Устанавливаем Pytorch перед whisperx: https://pytorch.org
 ```sh
 # Почему именно эта версия? тип другие выдают ошибки да, но где написанно что эта окажется норм? как нагуглил?
@@ -44,7 +44,7 @@ pip install numpy torchaudio transformers ffmpeg-python silero-vad
 pip install python-dotenv
 ```
 ВАРИАНТ Б(у меня сработало):
-- Можно установить также как обычный whisper:
+- Установка аналогично обычному whisper:
 1. Скачиваем whisperX:  pip install git+https://github.com/m-bain/whisperX.git
 2. удаляем torch(потому что если сначала скачать торч не той версии, то whisper при обновлении скачет торч на cpu):   python -m pip uninstall torch
 3. устанавливаем torch с CUDA:   https://pytorch.org/get-started/locally/
