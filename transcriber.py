@@ -21,9 +21,9 @@ HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 #Некоторые переменные, которые надо настроить.
 #установи значения перед запуском:
 language_code = "ru" # предпологается давать пользователю вручную выбирать эту переменную, чтобы не было ошибок при распазновании первых 30 секунд речи.
-audio_path = "AUDIO_for_transcription/vid_transcribe.mp4"
+audio_path = "AUDIO_for_transcription/30minbook.mp3"
 min_speakers_count = 1
-max_speakers_count = 3
+max_speakers_count = 1
 
 #возможность сократить время обработки от параметров аудиофайла:
 #TODO: Если спикер только один и пользователь об этом сообщает, то ни надо запускать Диаризацию 100%.
@@ -99,12 +99,29 @@ final_result = whisperx.assign_word_speakers(diarization, aligned_transcription)
 execution_time_diarization = time.time() - start_time_diarization
 print(f"END: Диаризация : {execution_time_diarization:.4f} секунд")
 
+
+# with open("TEXT_after_transcription/transcription_output.txt", "w", encoding="utf-8") as f:
+#     for segment in final_result["segments"]:
+#         speaker = segment.get('speaker', "Unknown")  # Возвращает "Unknown", если 'speaker' нет
+#         if speaker == "Unknown":
+#             print(f"WARNING: Speaker not found in segment: {segment}")
+#         f.write(f"[{segment['start']:.2f}s - {segment['end']:.2f}s] Speaker {speaker}: {segment['text']}\n")
+
+
+#Вариант если надо соеденить сегменты в местах где несколько сегментов сказаны одним сприкером:
+prev_speaker = "-1"
 with open("TEXT_after_transcription/transcription_output.txt", "w", encoding="utf-8") as f:
     for segment in final_result["segments"]:
         speaker = segment.get('speaker', "Unknown")  # Возвращает "Unknown", если 'speaker' нет
         if speaker == "Unknown":
             print(f"WARNING: Speaker not found in segment: {segment}")
-        f.write(f"[{segment['start']:.2f}s - {segment['end']:.2f}s] Speaker {speaker}: {segment['text']}\n")
+        if speaker == prev_speaker:
+            f.write(f"{segment['text']}")
+        else:
+            f.write(f"\n[{segment['start']:.2f}s] Speaker {speaker}: {segment['text']}")
+        prev_speaker = speaker
+
+
 
 print("Результаты сохранены в 'transcription_output.txt'")
 
