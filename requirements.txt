@@ -1,2 +1,4 @@
 #ip install git+https://github.com/m-bain/whisperX.git
 #pip install python-dotenv
+
+sounddevice
